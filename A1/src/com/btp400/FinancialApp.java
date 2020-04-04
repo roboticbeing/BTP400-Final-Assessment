@@ -61,7 +61,6 @@ public class FinancialApp {
 		System.out.println("Please enter the account type (CHQ/GIC)>");
 		
 		Scanner input = new Scanner(System.in);
-		input.useDelimiter(";");
 		
 		String selection = input.nextLine();
 		
