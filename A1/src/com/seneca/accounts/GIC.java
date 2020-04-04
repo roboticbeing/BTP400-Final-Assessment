@@ -60,12 +60,11 @@ public class GIC extends Account implements Taxable {
 		s.append(super.toString());
 		s.append(
 				"Account Type           : GIC \n" +
-						"Annual Interest Rate   : " + (String.format("%.2f%%", annualInterestRate.multiply(new BigDecimal(100))) + "% \n" +
+						"Annual Interest Rate   : " + (String.format("%.2f", annualInterestRate.multiply(new BigDecimal(100))) + "% \n" +
 								"Period of Investment   : "));
 		s.append(String.format("%d " , investmentPeriod)).append((investmentPeriod <= 1) ? "year\n" : "years\n");
-		s.append("Interest Income at Maturity: $" + (String.format("$%.2f\n", getInterestIncome()) + "\n" +
-				"Balance at Maturity    : $" + (String.format("$%.2f\n", getBalance()))  + "\n" 	 
-				));
+		s.append("Interest Income at Maturity: $" + (String.format("%.2f\n", getInterestIncome()) +
+				"Balance at Maturity    : $" + (String.format("%.2f\n", getBalanceAtMaturity()))));
 
 		return s.toString();
 	}
@@ -174,9 +173,5 @@ public class GIC extends Account implements Taxable {
 	 * override getBalance from account
 	 * @return balanceAtMaturity
 	 */
-	public double getBalance() {
-		return getBalanceAtMaturity();
-	}
-
 }
 

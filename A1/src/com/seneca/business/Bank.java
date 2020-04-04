@@ -103,7 +103,7 @@ public class Bank {
 			//store size of array
 			for (int i = 0; i < list.size(); i++) {
 				String accName = (String)list.get(i).getFullName();
-				if (name == accName) {
+				if (name.equals(accName)) {
 					accounts[index++] = list.get(i);
 				}
 			}
