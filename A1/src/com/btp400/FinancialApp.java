@@ -64,7 +64,7 @@ public class FinancialApp {
 		String selection = input.nextLine();
 		if (selection.equals("GIC")) {
 			System.out.println("Please enter account information at one line");
-			System.out.println("(e.g. John M. Doe;A1234;1000.00;1.5;2)");
+			System.out.println("(e.g. John M. Doe;A1234;1000.00;1.5;2;)");
 			String fullName = input.next();
 			String accountNumber = input.next();
 			double balance = input.nextDouble();
@@ -75,7 +75,7 @@ public class FinancialApp {
 			System.out.println("GIC Account opened.");
 		} else if (selection.equals("CHQ")) {
 			System.out.println("Please enter account information at one line");
-			System.out.println("(e.g. John M. Doe;A1234;1000.00;1.5;2)");
+			System.out.println("(e.g. John M. Doe;A1234;1000.00;1.5;2;)");
 			String fullName = input.next();
 			System.out.println(fullName);
 			String accountNumber = input.next();

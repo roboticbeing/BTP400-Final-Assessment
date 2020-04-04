@@ -88,7 +88,7 @@ public class Bank {
 	public Account[] searchByAccountName(String name) {
 		Account[] accounts;
 		int size = 0;
-		//check how many accounts have the same balance
+		//check how many accounts have the same name
 		for (int i = 0; i < list.size(); i++) {
 			String accName = (String)list.get(i).getFullName();
 			if (name.equals(accName)) {
@@ -134,7 +134,7 @@ public class Bank {
 		if (accountNumber != null) {
 			for (int i = 0; i < this.list.size(); i++) 
 			{
-				if (this.list.get(i).getAccountNumber() == accountNumber) {
+				if (this.list.get(i).getAccountNumber().equals(accountNumber)) {
 					removedAcc = list.get(i);
 					list.remove(i);
 					break;
