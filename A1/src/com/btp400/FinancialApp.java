@@ -98,7 +98,7 @@ public class FinancialApp {
 		Scanner input = new Scanner(System.in);
 		String accNum = input.nextLine();
 		Account acc = bank.removeAccount(accNum);
-		System.out.println("Account number " + acc.getAccountNumber() + " has been removed.");
+		System.out.println("Account number " + acc.getAccountNumber() + " has been removed." + "\n");
 	}
 	
 	public static void depositMoney() {
