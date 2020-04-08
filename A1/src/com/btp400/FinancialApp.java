@@ -1,6 +1,5 @@
 /**
- * @author Jeasung
- * @author Jessica
+ * @author Jessica Krishtul
  */
 
 package com.btp400;
@@ -145,6 +144,7 @@ public class FinancialApp {
 		System.out.println("(a) display all accounts with the same account name");
 		System.out.println("(b) display all accounts with the same final balance");
 		System.out.println("(c) display all accounts opened at the bank.");
+		System.out.print("Please enter choice>");
 		Scanner input = new Scanner(System.in);
 		Account[] accs = null;
 		String selection = input.nextLine();
