@@ -64,18 +64,18 @@ public class FinancialApp {
 		String selection = input.nextLine();
 		if (selection.equals("GIC")) {
 			System.out.println("Please enter account information at one line");
-			System.out.println("(e.g. John M. Doe;A1234;1000.00;1.5;2;)");
+			System.out.println("(e.g. John M. Doe;A1234;1000.00;1.5;2;)>");
 			String fullName = input.next();
 			String accountNumber = input.next();
 			double balance = input.nextDouble();
-			int investmentPeriod = input.nextInt();
 			double annualInterestRate = input.nextDouble();
+			int investmentPeriod = input.nextInt();
 			GIC gic = new GIC(fullName, accountNumber, balance, investmentPeriod, annualInterestRate);
 			bank.addAccount(gic);
 			System.out.println("GIC Account opened.");
 		} else if (selection.equals("CHQ")) {
 			System.out.println("Please enter account information at one line");
-			System.out.println("(e.g. John M. Doe;A1234;1000.00;1.5;2;)");
+			System.out.println("(e.g. John M. Doe;A1234;1000.00;1.5;2;)>");
 			String fullName = input.next();
 			System.out.println(fullName);
 			String accountNumber = input.next();
@@ -102,31 +102,33 @@ public class FinancialApp {
 	}
 	
 	public static void depositMoney() {
-		System.out.print("Enter the account number to deposit money into>");
-		Scanner input = new Scanner(System.in);
-		String accNum = input.nextLine();
-		for (Account acc : bank.getAllAccounts()) {
-			if (acc.getAccountNumber().equals(accNum)) {
-				System.out.print("Enter the amount to deposit>");
-				double amt = input.nextDouble();
-				acc.deposit(amt);
-				System.out.println("Amount " + amt + " deposited into account number " + acc.getAccountNumber());
-			}
-		}
+		System.out.println("Service Not Available");
+//		System.out.print("Enter the account number to deposit money into>");
+//		Scanner input = new Scanner(System.in);
+//		String accNum = input.nextLine();
+//		for (Account acc : bank.getAllAccounts()) {
+//			if (acc.getAccountNumber().equals(accNum)) {
+//				System.out.print("Enter the amount to deposit>");
+//				double amt = input.nextDouble();
+//				acc.deposit(amt);
+//				System.out.println("Amount " + amt + " deposited into account number " + acc.getAccountNumber());
+//			}
+//		}
 	}
 	
 	public static void withdrawMoney() {
-		System.out.print("Enter the account number to withdraw money from>");
-		Scanner input = new Scanner(System.in);
-		String accNum = input.nextLine();
-		for (Account acc : bank.getAllAccounts()) {
-			if (acc.getAccountNumber().equals(accNum)) {
-				System.out.print("Enter the amount to withdraw>");
-				double amt = input.nextDouble();
-				acc.withdraw(amt);
-				System.out.println("Amount " + amt + " withdrawn from account number " + acc.getAccountNumber());
-			}
-		}
+		System.out.println("Service Not Available");
+//		System.out.print("Enter the account number to withdraw money from>");
+//		Scanner input = new Scanner(System.in);
+//		String accNum = input.nextLine();
+//		for (Account acc : bank.getAllAccounts()) {
+//			if (acc.getAccountNumber().equals(accNum)) {
+//				System.out.print("Enter the amount to withdraw>");
+//				double amt = input.nextDouble();
+//				acc.withdraw(amt);
+//				System.out.println("Amount " + amt + " withdrawn from account number " + acc.getAccountNumber());
+//			}
+//		}
 	}
 	
 	public static void displayAccounts() {
@@ -154,14 +156,15 @@ public class FinancialApp {
 	}
 	
 	public static void displayATaxStatement() {
-		System.out.println("Enter an account name>");
-		Scanner input = new Scanner(System.in);
-		String accName = input.nextLine();
-		for (Account acc : bank.searchByAccountName(accName)) {
-			if (acc instanceof Taxable) {
-				System.out.println(((GIC) acc).createTaxStatement());
-			}
-		}
+		System.out.println("Service Not Available");
+//		System.out.println("Enter an account name>");
+//		Scanner input = new Scanner(System.in);
+//		String accName = input.nextLine();
+//		for (Account acc : bank.searchByAccountName(accName)) {
+//			if (acc instanceof Taxable) {
+//				System.out.println(((GIC) acc).createTaxStatement());
+//			}
+//		}
 	}
 	
 	public static void exitApp() {
