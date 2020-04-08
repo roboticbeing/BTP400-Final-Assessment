@@ -59,38 +59,47 @@ public class FinancialApp {
 	
 	public static void openAnAccount() {
 		System.out.println("Please enter the account type (CHQ/GIC)>");
+		
 		Scanner input = new Scanner(System.in);
-		input.useDelimiter(";");
+		
 		String selection = input.nextLine();
-		if (selection.equals("GIC")) {
+		
+		if (selection.toLowerCase().equals("gic")) 
+		{
 			System.out.println("Please enter account information at one line");
-			System.out.println("(e.g. John M. Doe;A1234;1000.00;1.5;2;)>");
-			String fullName = input.next();
-			String accountNumber = input.next();
-			double balance = input.nextDouble();
-			double annualInterestRate = input.nextDouble();
-			int investmentPeriod = input.nextInt();
+
+			System.out.println("(e.g. John M. Doe;A1234;1000.00;1.5;2)");
+			String in = input.nextLine();
+			
+			String[] params = in.split(";");
+			String fullName = params[0];
+			String accountNumber = params[1];
+			double balance = Double.parseDouble(params[2]);
+			double annualInterestRate = Double.parseDouble(params[3]);
+			int investmentPeriod = Integer.parseInt(params[4]);
+
 			GIC gic = new GIC(fullName, accountNumber, balance, investmentPeriod, annualInterestRate);
 			bank.addAccount(gic);
 			System.out.println("GIC Account opened.");
-		} else if (selection.equals("CHQ")) {
+		} 
+		else if (selection.toLowerCase().equals("chq")) 
+		{
 			System.out.println("Please enter account information at one line");
-			System.out.println("(e.g. John M. Doe;A1234;1000.00;1.5;2;)>");
-			String fullName = input.next();
-			System.out.println(fullName);
-			String accountNumber = input.next();
-			System.out.println(accountNumber);
-			double balance = input.nextDouble();
-			System.out.println(balance);
-			double serviceCharge = input.nextDouble();
-			System.out.println(serviceCharge);
-			int maxTransactions = input.nextInt();
-			System.out.println(maxTransactions);
+
+			System.out.println("(e.g. John M. Doe;A1234;1000.00;1.5;2)");
+			String in = input.nextLine();
+			
+			String[] params = in.split(";");
+			String fullName = params[0];
+			String accountNumber = params[1];
+			double balance = Double.parseDouble(params[2]);
+			double serviceCharge = Double.parseDouble(params[3]);
+			int maxTransactions = Integer.parseInt(params[4]);
+
 			Chequing chq = new Chequing(fullName, accountNumber, balance, serviceCharge, maxTransactions);
 			bank.addAccount(chq);
 			System.out.println("Chequing account opened.");
 		}
-		
 	}
 	
 	public static void closeAnAccount() {
@@ -102,7 +111,7 @@ public class FinancialApp {
 	}
 	
 	public static void depositMoney() {
-		System.out.println("Service Not Available");
+		System.out.println("Service Not Available \n");
 //		System.out.print("Enter the account number to deposit money into>");
 //		Scanner input = new Scanner(System.in);
 //		String accNum = input.nextLine();
@@ -117,7 +126,7 @@ public class FinancialApp {
 	}
 	
 	public static void withdrawMoney() {
-		System.out.println("Service Not Available");
+		System.out.println("Service Not Available \n");
 //		System.out.print("Enter the account number to withdraw money from>");
 //		Scanner input = new Scanner(System.in);
 //		String accNum = input.nextLine();
@@ -139,15 +148,15 @@ public class FinancialApp {
 		Scanner input = new Scanner(System.in);
 		Account[] accs = null;
 		String selection = input.nextLine();
-		if (selection.equals("a")) {
+		if (selection.toLowerCase().equals("a")) {
 			System.out.println("Enter an account name>");
 			String accName = input.nextLine();
 			accs = bank.searchByAccountName(accName);
-		} else if (selection.equals("b")) {
+		} else if (selection.toLowerCase().equals("b")) {
 			System.out.println("Enter a final balance>");
 			double finalBalance = input.nextDouble();
 			accs = bank.searchByBalance(finalBalance);
-		} else if (selection.equals("c")) {
+		} else if (selection.toLowerCase().equals("c")) {
 			accs = bank.getAllAccounts();
 		}
 		for (int i = 0; i < accs.length; i++) {
@@ -156,7 +165,7 @@ public class FinancialApp {
 	}
 	
 	public static void displayATaxStatement() {
-		System.out.println("Service Not Available");
+		System.out.println("Service Not Available \n");
 //		System.out.println("Enter an account name>");
 //		Scanner input = new Scanner(System.in);
 //		String accName = input.nextLine();
